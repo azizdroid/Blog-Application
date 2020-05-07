@@ -1,0 +1,32 @@
+<div style="text-align:center; font-style: oblique; font-family: 'Times New Roman', Times, serif;font-size: 20px; font-weight: bolder;" >
+    <div class="container">
+        <div class="row-header">
+            <div class="col-md-12">
+                All Blogs
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <br><br><br>
+
+    <div class="row" style="text-align: center;  box-shadow: black;" *ngIf="allBlogs.length>0">
+                    <div *ngFor="let blog of allBlogs" class="col-md-4">
+<div class="card card-header"  >
+    <div class="card-header">
+        {{ blog.title | uppercase }}
+      </div>
+    <div class="card-body">
+      <p>{{blog.description}}</p>
+      <p>{{blog.bodyHtml}}</p>
+      <a  class="btn btn-primary" [routerLink]="['/blog',blog.blogId]" >read</a>
+    </div>
+    <div class="card-footer text-muted" style="box-shadow: black; ">
+      <p>Posted on {{blog.created | date:"MM/dd/yy"}} <br>
+        by {{blog.author}}</p>
+        <br><br>
+    </div>
+  </div>
+  
+</div>
+</div>

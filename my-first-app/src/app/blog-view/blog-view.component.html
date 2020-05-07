@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row-header" *ngIf="currentBlog">
+        <br><br><br>
+        <div class="col-md-12" style="align-items: center;">
+<div class="card text-center" style="
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+text-align: center;">
+    <div class="card-header" style="align-items: center;">
+     <h2> {{currentBlog.title}}</h2>
+     <p class="card-text">posted by {{currentBlog.author}} on {{currentBlog.created | date}}</p>
+    </div>
+    <div class="card-body" >
+      <h5 class="card-title">{{currentBlog.description}}</h5>
+      <div  [innerHtml]="currentBlog.bodyHtml"></div>
+      <p *ngIf="currentBlog.tags.length!=undefined && currentBlog.tags.length>0">tags: <span *ngFor="let tags of currentBlog.tags ">{{tags +" "}}</span></p>
+      <div class="text">
+        <h4>{{currentBlog.category}}</h4>
+      </div>
+      <br>
+      <div class="row" *ngIf="currentBlog">
+        
+<div class="col-md-4">
+      <a href="#" class="btn btn-danger" (click)="deleteThisBlog()">delete</a> 
+      </div>
+      <div class="col-md-4">
+      <a href="#" class="btn btn-primary">edit</a>
+      </div>
+      <div class="col-md-4">
+      <a href="#" class="btn btn-secondary">cancel</a> 
+      </div>
+    </div>
+    <br><br>
+    
+    
+  </div>
+  </div>
+  </div>
+  </div>
